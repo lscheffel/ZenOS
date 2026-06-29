@@ -21,5 +21,11 @@
 - ADR-00003 — Registry Sync Capability
 - ADR-00004 — Ontology Sync Capability
 
+## Change Proposals
+- GH-PAGES-00001 — GitHub Pages Publication (governance/reports/gh-pages-change-proposal.md)
+
+## Documentation Artifacts
+- docs/index.html — Static wiki entry point for GitHub Pages.
+
 ## Status: SYNCHRONIZED
-2026-06-28T11:45:00-03:00
+2026-06-29T03:42:00-03:00

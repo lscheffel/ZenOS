@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZenOS — Sovereign Governance Platform</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --sidebar-bg: #f7f9fb;
+      --text: #1f2328;
+      --muted: #57606a;
+      --accent: #0969da;
+      --border: #d0d7de;
+      --shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
+      --radius: 6px;
+      --max-w: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+    .sidebar {
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      padding: 24px 18px 24px 22px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      margin-bottom: 4px;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .nav { display: flex; flex-direction: column; gap: 6px; }
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+    }
+    .nav a:hover {
+      background: #eef2f7;
+      border-color: var(--border);
+    }
+    .nav .section {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 10px;
+      padding-left: 8px;
+    }
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      padding: 40px 32px 80px;
+    }
+    h1 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.6px; }
+    .lead { font-size: 16px; color: var(--muted); margin-bottom: 28px; }
+    h2 {
+      font-size: 20px;
+      margin: 36px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    ul { padding-left: 20px; margin: 8px 0 14px; }
+    li { margin: 5px 0; }
+    a.code {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a.code:hover { text-decoration: underline; }
+    .badge {
+      font-size: 11px;
+      background: #ddf4ff;
+      color: #0969da;
+      border: 1px solid #b6e3ff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 500;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .note {
+      background: var(--sidebar-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      margin: 14px 0 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: var(--bg);
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      font-size: 14px;
+      margin: 0 0 6px;
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+    code {
+      background: rgba(175, 184, 193, 0.2);
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 860px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { height: auto; position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">ZenOS</div>
+      <div class="brand-sub">Sovereign Governance Platform</div>
+      <nav class="nav">
+        <div class="section">Início</div>
+        <a href="#overview">Visão geral</a>
+        <a href="#structure">Estrutura canônica</a>
+
+        <div class="section">Governança</div>
+        <a href="../governance/governance_manifest.md">Manifesto</a>
+        <a href="#aeds">Diretivos arquiteturais</a>
+
+        <div class="section">Conhecimento</div>
+        <a href="../knowledge/ontology/canonical.md">Ontologia canônica</a>
+        <a href="../governance/decisions/">Decisões arquiteturais</a>
+
+        <div class="section">Capabilidades</div>
+        <a href="../capabilities/">Catálogo de capabilities</a>
+
+        <div class="section">Templates</div>
+        <a href="../governance/templates/">Templates e contratos</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <h1>ZenOS Wiki</h1>
+      <p class="lead">
+        Documentação viva do repositório. Consulte diretamente os artefatos canônicos ou use este índice como ponto de entrada.
+      </p>
+
+      <div class="note">
+        <strong>Nota:</strong> Esta página é publicada via GitHub Pages como documentação estática. Para artefatos versionados e contratos formais, acesse os arquivos Markdown originais do repositório.
+      </div>
+
+      <h2 id="overview">Visão geral</h2>
+      <p>
+        O ZenOS é uma <strong>Sovereign Governance Platform</strong> projetada para governar a evolução de ecossistemas de software independentemente de repositórios, modelos ou runtimes específicos.
+      </p>
+      <p>
+        A arquitetura organiza o conhecimento, governança, capabilities e estado de forma explícita, minimizando ambiguidade e ambientes de inferência.
+      </p>
+
+      <h2 id="structure">Estrutura canônica</h2>
+      <p>O repositório segue um layout baseado em domínios arquiteturais (AED-00010):</p>
+      <ul>
+        <li><strong>governance/</strong> — Diretivos, constraints, policies, standards e decisões.</li>
+        <li><strong>knowledge/</strong> — Ontologia, especificações, padrões e decisões arquiteturais (ADRs).</li>
+        <li><strong>capabilities/</strong> — Agents, skills, workflows e geradores executáveis.</li>
+        <li><strong>runtime/</strong> — Estado transitório (sessões, tasks, workspace).</li>
+        <li><strong>REGISTRY.md</strong> — Inventário canônico do repositório.</li>
+        <li><strong>AGENTS.md</strong> — Constituição e protocolo de execução.</li>
+      </ul>
+
+      <h2 id="aeds">Diretivos arquiteturais</h2>
+      <p>Os AEDs definem a arquitetura, comportamento e enforcement do sistema:</p>
+      <div class="grid">
+        <div class="card">
+          <h3>AED-00001</h3>
+          <p>Visão arquitetural & princípios fundacionais.</p>
+          <a class="code" href="../governance/directives/AED-00001.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>AED-00003</h3>
+          <p>Ontologia canônica e vocabulário.</p>
+          <a class="code" href="../governance/directives/AED-00003.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>AED-00005</h3>
+          <p>Arquitetura de governança.</p>
+          <a class="code" href="../governance/directives/AED-00005.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>AED-00008</h3>
+          <p>Boot & descoberta do repositório.</p>
+          <a class="code" href="../governance/directives/AED-00008.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>AED-00010</h3>
+          <p>Layout canônico do repositório.</p>
+          <a class="code" href="../governance/directives/AED-00010.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>AED-00011</h3>
+          <p>Compliance & enforcement.</p>
+          <a class="code" href="../governance/directives/AED-00011.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>AED-00012</h3>
+          <p>Processo de mudança de governança.</p>
+          <a class="code" href="../governance/directives/AED-00012.md">Ler documento</a>
+        </div>
+        <div class="card">
+          <h3>Índice completo</h3>
+          <p>Todos os AEDs disponíveis em <code>governance/directives/</code>.</p>
+          <a class="code" href="../governance/directives/">Ver todos</a>
+        </div>
+      </div>
+
+      <h2 id="knowledge">Conhecimento</h2>
+      <ul>
+        <li><a class="code" href="../knowledge/ontology/canonical.md">Ontologia canônica</a> — vocabulário oficial.</li>
+        <li><a class="code" href="../governance/decisions/">Decisões arquiteturais (ADRs)</a> — histórico de ADRs.</li>
+        <li><a class="code" href="../governance/templates/">Templates</a> — modelos de ADR, README, contratos e outros artefatos.</li>
+      </ul>
+
+      <h2 id="capabilities">Capabilities</h2>
+      <p>Capabilities são entidades executáveis registradas no repositório:</p>
+      <ul>
+        <li><a class="code" href="../capabilities/ontology-sync/">ontology-sync</a> — sincronização de termos da ontologia.</li>
+        <li><a class="code" href="../capabilities/registry-sync/">registry-sync</a> — sincronização do REGISTRY.md.</li>
+      </ul>
+
+      <h2 id="registry">Registry & Estado</h2>
+      <ul>
+        <li><a class="code" href="../REGISTRY.md">REGISTRY.md</a> — inventário canônico.</li>
+        <li><a class="code" href="../governance/governance_manifest.md">governance_manifest.md</a> — manifesto constitucional.</li>
+        <li><a class="code" href="../AGENTS.md">AGENTS.md</a> — protocolo de execução e identidade constitucional.</li>
+      </ul>
+
+      <div class="note">
+        Página gerada como documentação estática para GitHub Pages. Conteúdo baseado em artefatos versados do repositório.
+      </div>
+    </main>
+  </div>
+</body>
+</html>
