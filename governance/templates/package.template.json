@@ -1,0 +1,23 @@
+{
+  "name": "{{projectName}}",
+  "version": "0.1.0",
+  "description": "Project bootstrapped from ZenOS template",
+  "main": "zen-mode.js",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo 'TODO: configure tests'",
+    "validate:manifest": "echo 'TODO: implement manifest validation'",
+    "validate:generated": "echo 'TODO: implement generated validation'",
+    "security:scan": "echo 'TODO: implement security scan'",
+    "sync:state": "echo 'TODO: implement state sync'",
+    "registry:validate": "echo 'TODO: implement registry validation'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "metadata": {
+    "platform": "zenos",
+    "bootstrapDate": "{{bootstrapDate}}",
+    "profile": "sovereign"
+  }
+}

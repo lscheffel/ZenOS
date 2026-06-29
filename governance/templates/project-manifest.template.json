@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "project_name": "{{PROJECT_NAME}}",
+  "bootstrap_date": "{{TIMESTAMP}}",
+  "domains": {
+    "A": { "status": "inherited", "source": "ZenOS template" },
+    "B": { "status": "inherited", "source": "ZenOS template" },
+    "C": { "status": "generated", "location": "knowledge/" },
+    "D": { "status": "pending", "location": "capabilities/" },
+    "E": { "status": "pending", "location": "project/" },
+    "F": { "status": "ephemeral", "location": "runtime/" }
+  },
+  "governance": {
+    "constitution": "AGENTS.md",
+    "manifest": "governance/governance_manifest.md",
+    "directives": "governance/directives/AED-*.md"
+  },
+  "compliance_score": 0,
+  "sovereignty_check": {
+    "independent": true,
+    "cognition_separated": true,
+    "history_separated": true
+  }
+}

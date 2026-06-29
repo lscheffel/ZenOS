@@ -1,0 +1,66 @@
+# ADR-00001: Separação de Domínios entre Template ZenOS e Projeto Derivado
+
+## Status
+IMPLEMENTED
+
+## Context
+ZenOS template must separate platform domains (A-B) from project domains (C-F) to ensure sovereignty and prevent cognitive inheritance. Derived projects start cognitively blank per AXIOM 06.
+
+## Decision
+Separar estritamente os domínios da plataforma (template) dos domínios do projeto derivado.
+
+## Authority
+- governance_manifest.md Section 11 (Platform Sovereignty)
+- governance_manifest.md Section 17 (Project Evolution Law)
+- AED-00010 (Repository Layout) §3, §97
+
+## Rationale
+Domain separation ensures sovereignty: template cannot pollute derived projects. Each domain has clear ownership boundaries preventing cross-contamination.
+
+## Consequences
+**Positivas:**
+- Template é scaffolding mínimo
+- Projetos derivados são autônomos
+- `.kilo/` é infrastructure (not domain)
+
+**Negativas:**
+- Domains D/C/F são project-owned mas na raiz
+
+## Implementation
+- Directory structure enforced: Domain A/B assets in governance/, Domain C/D/F in root
+- .kilo/ established as infrastructure layer
+- Bootstrap script provisions derived project structure
+- Ontology canonical.md deployed
+- Capabilities deployed: registry-sync, ontology-sync
+
+### Estrutura do Template (ZenOS — Domínio A & B)
+```
+ZenOS/
+├── AGENTS.md                          # Constituição seed (Domain B)
+├── .gitignore                           # Domain A (boot)
+├── scripts/bootstrap.sh                   # Domain A (boot)
+└── governance/                          # Domain B
+    ├── directives/
+    ├── governance_manifest.md
+    ├── document-authority.json
+    ├── state/
+    ├── exceptions/
+    └── templates/
+        ├── bootstrap-capabilities/
+        ├── kilo/
+        └── contracts/
+```
+
+### Estrutura do Projeto Derivado
+```
+project/ (Domain E - Root)
+├── AGENTS.md, package.json, .gitignore, CHANGELOG.md, README.md, REGISTRY.md, STATE.md
+├── .kilo/ (infrastructure - outside domains)
+├── governance/ (Domain B - inherited)
+├── knowledge/ (Domain C - project-owned)
+├── capabilities/ (Domain D - project-owned)
+└── runtime/ (Domain F - project-owned)
+```
+
+## Tags
+#platform #bootstrap #sovereignty #domain-separation

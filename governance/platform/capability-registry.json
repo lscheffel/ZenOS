@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "capabilities": {
+    "registry-sync": {
+      "path": "capabilities/registry-sync/",
+      "domain": "D",
+      "status": "stable"
+    },
+    "ontology-sync": {
+      "path": "capabilities/ontology-sync/",
+      "domain": "D",
+      "status": "stable"
+    }
+  }
+}

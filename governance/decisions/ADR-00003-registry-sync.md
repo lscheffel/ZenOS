@@ -1,0 +1,35 @@
+# ADR-00003: Registry Synchronization Capability
+
+## Status
+IMPLEMENTED
+
+## Context
+REGISTRY.md is hardcoded during bootstrap. No mechanism to synchronize with actual repository state.
+
+## Decision
+Create `registry-sync` capability that scans and updates REGISTRY.md automatically.
+
+## Authority
+- AED-00007 (Contract Specification)
+- AED-00010 (Repository Layout)
+
+## Rationale
+Registry drift between actual repository and hardcoded REGISTRY.md produces institutional inconsistencies. Automation maintains registry accuracy.
+
+## Consequences
+**Positivas:**
+- Automates REGISTRY.md maintenance
+- Keeps registry synchronized with actual repository state
+- Prevents manual registry drift
+
+**Negativas:**
+- Adds scan overhead to repository operations
+
+## Implementation
+- `capabilities/registry-sync/manifest.json` - Deployed capability definition
+- `capabilities/registry-sync/registry-sync.sh` - Scanner script
+- `capabilities/registry-sync/contract.md` - Contract specification
+- `.kilo/command/registry-sync.md` - Command definition available
+
+## Tags
+#automation #registry #capability

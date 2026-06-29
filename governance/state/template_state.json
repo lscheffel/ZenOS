@@ -1,0 +1,32 @@
+{
+  "state_version": "1.0",
+  "project_name": "ZenOS Template",
+  "created_at": "2026-06-28T11:34:00-03:00",
+  "status": "TEMPLATE_READY",
+  "domains": {
+    "A": "PLATFORM_CORE",
+    "B": "GOVERNANCE_KERNEL",
+    "C": "PROJECT_COGNITION",
+    "D": "CAPABILITIES",
+    "E": "PROJECT_IMPLEMENTATION",
+    "F": "RUNTIME_STATE"
+  },
+  "domains_initialized": {
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "E": false,
+    "F": true
+  },
+  "capabilities_deployed": [
+    "registry-sync",
+    "ontology-sync"
+  ],
+  "compliance_score": 0,
+  "notes": [
+    "This is the ZenOS template seed state.",
+    "Capabilities deployed for immediate use in derived projects.",
+    "Bootstrap copies capabilities to derived project instances."
+  ]
+}

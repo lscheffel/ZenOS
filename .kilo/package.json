@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@kilocode/plugin": "7.3.54"
+  },
+  "scripts": {
+    "preflight": "echo 'TODO: implement preflight validation'",
+    "validate:all": "echo 'TODO: implement validate:all'",
+    "validate:generated": "echo 'TODO: implement validate:generated'",
+    "validate:manifest": "echo 'TODO: implement validate:manifest'",
+    "validate:help": "echo 'TODO: implement validate:help'",
+    "registry:validate": "echo 'TODO: implement registry:validate'",
+    "registry:audit": "echo 'TODO: implement registry:audit'",
+    "ignite:reconcile": "echo 'TODO: implement ignite:reconcile'",
+    "sync:state": "echo 'TODO: implement sync:state'",
+    "security:scan": "echo 'TODO: implement security:scan'",
+    "release:prepare": "echo 'TODO: implement release:prepare'",
+    "release:infer": "echo 'TODO: implement release:infer'",
+    "test": "echo 'TODO: implement test suite'"
+  }
+}

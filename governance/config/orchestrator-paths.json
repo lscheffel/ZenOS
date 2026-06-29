@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "namespace": "governance",
+  "paths": {
+    "state": "governance/state",
+    "graph": "governance/graph",
+    "twin": "governance/twin",
+    "generated": "governance/generated",
+    "reports": "governance/reports",
+    "llm_exports": "governance/llm-exports",
+    "decisions": "governance/decisions",
+    "plans": "governance/plans",
+    "pre_plans": "governance/pre-plans",
+    "audits": "governance/audits",
+    "analysis": "governance/analysis",
+    "manifests": {
+      "platform": "governance/platform/platform-manifest.json",
+      "capability_registry": "governance/platform/capability-registry.json",
+      "authority_map": "governance/platform/authority-map.json"
+    },
+    "rules": {
+      "governance": "governance/rules/governance-rules.json"
+    },
+    "state_file": "STATE.md",
+    "changelog_file": "CHANGELOG.md",
+    "blueprints": "governance/plans/BP-*.md",
+    "adrs": "governance/decisions/ADR-*.md"
+  },
+"templates": {
+    "adr": "governance/templates/ADR-template.md"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "registry-sync",
+  "domain": "D",
+  "owner": "platform",
+  "authority": "HIGH",
+  "inheritance": "pluggable",
+  "lifecycle": "replaceable",
+  "dependencies": ["orchestrator"],
+  "assets": [
+    "scripts/registry-sync.sh",
+    ".kilo/command/registry-sync.md"
+  ],
+  "generators": [],
+  "purpose": "Automatically synchronize REGISTRY.md with actual repository state by scanning capabilities, knowledge, and runtime artifacts",
+  "contract": "capabilities/registry-sync/contract.md",
+  "inputs": {
+    "repository_root": "string",
+    "scan_mode": "full|incremental|dry-run"
+  },
+  "outputs": {
+    "REGISTRY.md": "updated registry with detected capabilities/assets"
+  }
+}

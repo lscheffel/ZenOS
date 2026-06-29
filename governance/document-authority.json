@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "registry": {
+    "AGENTS.md": {
+      "id": "CONSTITUTION",
+      "domain": "B",
+      "authority": "SUPREME",
+      "mutable": false,
+      "owner": "platform",
+      "lifecycle": "immutable"
+    },
+    "governance_manifest.md": {
+      "id": "MANIFEST",
+      "domain": "B",
+      "authority": "HIGH",
+      "mutable": "AED-00012",
+      "owner": "platform",
+      "lifecycle": "governed"
+    },
+    "governance/directives/AED-*.md": {
+      "id": "AED_REGISTRY",
+      "domain": "B",
+      "authority": "HIGH",
+      "mutable": "AED-00012",
+      "owner": "platform",
+      "lifecycle": "governed"
+    },
+    "scripts/bootstrap.sh": {
+      "id": "BOOTSTRAP_CAPABILITY",
+      "domain": "A",
+      "authority": "SUPREME",
+      "mutable": false,
+      "owner": "platform",
+      "lifecycle": "immutable"
+    },
+    "capabilities/registry-sync/manifest.json": {
+      "id": "REGISTRY_SYNC",
+      "domain": "D",
+      "authority": "HIGH",
+      "mutable": "AED-00012",
+      "owner": "platform",
+      "lifecycle": "replaceable"
+    },
+    "capabilities/ontology-sync/manifest.json": {
+      "id": "ONTOLOGY_SYNC",
+      "domain": "D",
+      "authority": "HIGH",
+      "mutable": "AED-00012",
+      "owner": "platform",
+      "lifecycle": "replaceable"
+    }
+  }
+}

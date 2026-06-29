@@ -1,0 +1,27 @@
+{
+  "id": "orchestrator",
+  "domain": "A",
+  "owner": "platform",
+  "authority": "SUPREME",
+  "inheritance": "pluggable",
+  "lifecycle": "immutable",
+  "dependencies": [],
+  "assets": [
+    "governance/templates/kilo/agent/",
+    "governance/templates/kilo/skills/",
+    "governance/templates/kilo/command/",
+    "governance/templates/kilo/package.json",
+    "governance/templates/kilo/run-script"
+  ],
+  "generators": [
+    "kilo-config-deploy"
+  ],
+  "purpose": "Deploy KiloCode/VSCodium agent orchestration layer to derived projects",
+  "contract": "governance/templates/contracts/orchestrator-contract-v1.md",
+  "inputs": {
+    "project_directory": "string"
+  },
+  "outputs": {
+    "project/.kilo/": "full agent orchestration setup"
+  }
+}

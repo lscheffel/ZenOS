@@ -1,0 +1,12 @@
+{
+  "id": "ontology-sync",
+  "domain": "D",
+  "owner": "platform",
+  "authority": "HIGH",
+  "inheritance": "pluggable",
+  "lifecycle": "replaceable",
+  "dependencies": [],
+  "assets": ["ontology-sync.sh", "ontology-sync.md"],
+  "generators": [],
+  "purpose": "Extract domain terms from ADRs and update knowledge/ontology/canonical.md"
+}
