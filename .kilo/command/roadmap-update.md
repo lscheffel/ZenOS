@@ -94,7 +94,7 @@ Evidence may include:
 * tests
 * generated artifacts
 * manifests
-* ADR references
+* AED references
 * blueprint references
 * documentation references
 * repository history

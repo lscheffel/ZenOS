@@ -9,23 +9,23 @@
 1. Loaded Constitution (AGENTS.md, governance_manifest.md, AED-00001 through AED-00014)
 2. Executed Implementation Reconciliation per `/implementation-reconcile` command
 3. Audited repository structure against governance baseline
-4. Verified ADR-00002 orchestrator refactoring completion
-5. Validated domain separation compliance (ADR-00001)
+4. Verified AED-00002 orchestrator refactoring completion
+5. Validated domain separation compliance (* ADR-00001)
 6. Generated `governance/reports/implementation-reconciliation-report.md`
 
 ## Findings
 
 - **No violations detected** - repository is in valid TEMPLATE_SEED state
-- **ADR-00002 complete** - all 4 phases verified with evidence
+- **AED-00002 complete** - all 4 phases verified with evidence
 - **Domain separation compliant** - template vs derived project boundaries respected
 - **Orchestrator contract satisfied** - `.kilo/` deployment works correctly
 
 ## Missing Platform Artifacts (Non-blocking for Template)
 
-- `governance/platform/platform-manifest.json` (AED-00008)
-- `governance/platform/capability-registry.json` (AED-00008)
-- `governance/platform/authority-map.json` (AED-00008)
-- `knowledge/ontology/canonical.md` (AED-00003)
+- `governance/platform/platform-manifest.json` (* ADR-00008)
+- `governance/platform/capability-registry.json` (* ADR-00008)
+- `governance/platform/authority-map.json` (* ADR-00008)
+- `knowledge/ontology/canonical.md` (* ADR-00003)
 
 ## Recommendations
 

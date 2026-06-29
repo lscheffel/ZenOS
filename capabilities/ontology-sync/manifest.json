@@ -11,7 +11,7 @@
     "ontology-sync.md"
   ],
   "generators": [],
-  "purpose": "Extract domain terms from ADRs and update knowledge/ontology/canonical.md",
+  "purpose": "Extract domain terms from AEDs and update knowledge/ontology/canonical.md",
   "contract": "capabilities/ontology-sync/contract.md",
   "inputs": {
     "repository_root": "string"

@@ -16,10 +16,10 @@
 - session-template-20260628.md
 
 ## Template Decisions (governance/decisions/)
-- ADR-00001 — Domain Separation
-- ADR-00002 — Orchestrator Refactoring  
-- ADR-00003 — Registry Sync Capability
-- ADR-00004 — Ontology Sync Capability
+- AED-00001 — Domain Separation
+- AED-00002 — Orchestrator Refactoring  
+- AED-00003 — Registry Sync Capability
+- AED-00004 — Ontology Sync Capability
 
 ## Change Proposals
 - GH-PAGES-00001 — GitHub Pages Publication (governance/reports/gh-pages-change-proposal.md)

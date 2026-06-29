@@ -57,7 +57,7 @@ Other project artifacts may be reviewed as evidence sources, including:
 * source code
 * tests
 * manifests
-* ADRs
+* AEDs
 * blueprints
 * documentation
 * generated state

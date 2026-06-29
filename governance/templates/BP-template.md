@@ -24,6 +24,6 @@
 [AED-NNNNN Section X / Contract ID]
 
 ## References
-- ADRs relacionadas
+- AEDs relacionadas
 - Blueprints dependencia
 - Documentação de suporte

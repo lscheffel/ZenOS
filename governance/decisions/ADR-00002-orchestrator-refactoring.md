@@ -10,8 +10,8 @@ The `.kilo` directory contains KiloCode agents, skills, and commands that were h
 Refactor orchestrator components to be governance-agnostic while maintaining ZenOS compatibility.
 
 ## Authority
-- AED-00009 (Context Loading) — Path configuration
-- AED-00010 (Repository Layout) — Template structure
+- ADR-00009 (Context Loading) — Path configuration
+- ADR-00010 (Repository Layout) — Template structure
 
 ## Rationale
 Orchestrator must work across derived projects without path coupling. Governance paths must be parameterized, not hardcoded.

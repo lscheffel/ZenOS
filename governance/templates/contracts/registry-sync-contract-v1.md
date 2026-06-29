@@ -12,7 +12,7 @@ Automatically synchronize REGISTRY.md with actual repository state by scanning c
 - repository_root: string (default: current directory)
 
 ## Outputs
-- REGISTRY.md: updated with detected capabilities, ADRs, and sessions
+- REGISTRY.md: updated with detected capabilities, AEDs, and sessions
 
 ## Dependencies
 - bash, find, grep

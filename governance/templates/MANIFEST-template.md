@@ -38,7 +38,7 @@ governance/governance_manifest.md
   ↓
 governance/directives/AED-*.md
   ↓
-knowledge/decisions/ADR-*.md
+governance/decisions/ADR-*.md
   ↓
 project/
 ```

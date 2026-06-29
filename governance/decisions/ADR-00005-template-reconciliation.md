@@ -15,8 +15,8 @@ Post-bootstrap audit discovered multiple issues preventing ZenOS template from b
 Execute comprehensive reconciliation fixing all discovered issues without violating governance integrity.
 
 ## Authority
-- AED-00011 (Compliance & Enforcement) — Issue remediation required
-- AED-00012 (Change Management) — Fixes within template scope
+- ADR-00011 (Compliance & Enforcement) — Issue remediation required
+- ADR-00012 (Change Management) — Fixes within template scope
 
 ## Rationale
 Unchecked issues compound into entropy. Governance integrity requires artifacts to reflect actual state.

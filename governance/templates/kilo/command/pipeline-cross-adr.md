@@ -52,7 +52,7 @@ If `$ARGUMENTS` provides `--adr <path>`:
 - Use custom ADR path.
 
 Otherwise:
-- Preferred path: `${GOVERNANCE_DECISIONS}/ADR-<next>-ERA-WAVE-CONVERGENCE.md`.
+- Preferred path: `${GOVERNANCE_DECISIONS}/AED-<next>-ERA-WAVE-CONVERGENCE.md`.
 - Use `${GOVERNANCE_TEMPLATES_ADR}`.
 
 ## Post-generation

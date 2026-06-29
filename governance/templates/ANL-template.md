@@ -4,7 +4,7 @@
 [Propósito desta análise - suporte a decisão arquitetural]
 
 ## Proposal Summary
-[Resumo da proposta ADR associada]
+[Resumo da proposta AED associada]
 
 ## Authority Review
 [Como a proposta se alinha com AEDs existentes]
@@ -29,5 +29,5 @@
 ADOPT | DEFER | REJECT
 
 ## References
-- ADR correlata
+- AED correlata
 - Análises relacionadas

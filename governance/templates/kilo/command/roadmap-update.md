@@ -94,7 +94,7 @@ Evidence may include:
 * tests
 * generated artifacts
 * manifests
-* ADR references
+* AED references
 * blueprint references
 * documentation references
 * repository history
@@ -237,7 +237,7 @@ Never modify source code.
 
 Never modify manifests.
 
-Never modify ADRs.
+Never modify AEDs.
 
 Never modify blueprints.
 

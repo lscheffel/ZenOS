@@ -14,6 +14,6 @@ Scans repository and updates REGISTRY.md automatically.
 
 ## Workflow
 1. Scan `capabilities/` for manifests
-2. Scan `knowledge/decisions/` for ADRs
+2. Scan `governance/decisions/` for ADRs
 3. Scan `runtime/session/` for handoffs
 4. Update REGISTRY.md with detected artifacts

@@ -10,9 +10,9 @@ Canonical ontology (`knowledge/ontology/canonical.md`) is static template. As ca
 Create `ontology-sync` capability that extracts domain terms from ADRs and updates canonical ontology.
 
 ## Authority
-- AED-00003 (Canonical Ontology) — Ontology precedes implementation
-- AED-00007 (Contract Specification) — Entity must expose Contract
-- AED-00010 (Repository Layout) — knowledge/ontology/ is canonical
+- ADR-00003 (Canonical Ontology) — Ontology precedes implementation
+- ADR-00007 (Contract Specification) — Entity must expose Contract
+- ADR-00010 (Repository Layout) — knowledge/ontology/ is canonical
 
 ## Rationale
 Ontological drift between ADRs and canonical.md produces architectural inconsistencies. Automation prevents stale ontology.

@@ -45,7 +45,7 @@ Invocar via command `/local-review-uncommitted` para mudanças atuais ou `/local
 ### docs.md — Especialista em Reconciliação de Documentação
 
 **Descrição Detalhada:**
-Especializado em reconciliar a documentação com a realidade da implementação. Percorre artefatos de documentação (README, CHANGELOG, STATE, ADRs) e verifica se estão sincronizados com código fonte, commits git e estado de implementação. O agente detecta divergências, lacunas documentais e sugere atualizações necesárias para manter a verdade canônica.
+Especializado em reconciliar a documentação com a realidade da implementação. Percorre artefatos de documentação (README, CHANGELOG, STATE, AEDs) e verifica se estão sincronizados com código fonte, commits git e estado de implementação. O agente detecta divergências, lacunas documentais e sugere atualizações necesárias para manter a verdade canônica.
 
 **Situações de Uso:**
 - Após implementação significativa para atualizar documentação
@@ -58,7 +58,7 @@ Especializado em reconciliar a documentação com a realidade da implementação
 Mantém documentação viva e precisa, previne "documentation debt", garante que decisões arquiteturais estejam registradas, alinha expectativas com realidade.
 
 **Como usar:**
-Executar `/docs-reconcile` após implementação. Agente analisa diffs, compara com ADRs existentes, verifica README/STATE/CHANGELOG e gera recomendações de atualização.
+Executar `/docs-reconcile` após implementação. Agente analisa diffs, compara com AEDs existentes, verifica README/STATE/CHANGELOG e gera recomendações de atualização.
 
 **Casos práticos:**
 1. Feature completa - `/docs-reconcile` reconcilia STATE.md, CHANGELOG.md e roadmap
@@ -250,7 +250,7 @@ Previne commits problemáticos, identifica issues prematuras, garante qualidade 
 ### docs-reconcile — Reconciliação de Documentação
 
 **Descrição Detalhada:**
-Reconcilia todos os artefatos de documentação com a implementação real, verificando consistência entre README, STATE.md, CHANGELOG, ADRs, blueprints e docs. Atualiza documentação com base em evidências verificáveis.
+Reconcilia todos os artefatos de documentação com a implementação real, verificando consistência entre README, STATE.md, CHANGELOG, AEDs, blueprints e docs. Atualiza documentação com base em evidências verificáveis.
 
 **Situações de Uso:**
 - Após implementações significativas

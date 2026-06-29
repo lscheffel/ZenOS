@@ -24,8 +24,8 @@ ZenOS/ (Template Root)
 │   │   └── orchestrator-paths.json        # Configuration (Domain B)
 │   ├── directives/                        # 14 AEDs present (Domain B)
 │   ├── decisions/
-│   │   ├── ADR-00001-domain-separation.md # APPROVED (Domain C)
-│   │   └── ADR-00002-orchestrator-refactoring.md # Complete (Domain C)
+│   │   ├── AED-00001-domain-separation.md # APPROVED (Domain C)
+│   │   └── AED-00002-orchestrator-refactoring.md # Complete (Domain C)
 │   ├── exceptions/
 │   ├── state/
 │   │   └── template_state.json            # State schema (Domain B)
@@ -51,20 +51,20 @@ ZenOS/ (Template Root)
 
 | AED | Title | Status | Compliance |
 |-----|-------|--------|------------|
-| AED-00001 | Repository Architectural Vision | Proposed | ✅ No violations |
-| AED-00002 | Operating Model | Proposed | ✅ No violations |
-| AED-00003 | Canonical Ontology | Proposed | ✅ No violations |
-| AED-00004 | Knowledge Architecture | Proposed | ✅ No violations |
-| AED-00005 | Governance Architecture | Proposed | ✅ No violations |
-| AED-00006 | Capability Model | Proposed | ✅ No violations |
-| AED-00007 | Contract Specification | Proposed | ✅ No violations |
-| AED-00008 | Boot & Discovery | Proposed | ✅ No violations |
-| AED-00009 | Context Loading | Proposed | ✅ No violations |
-| AED-00010 | Repository Layout | Proposed | ⚠️ Template structure diverges (intentional) |
-| AED-00011 | Compliance & Enforcement | Proposed | ✅ No violations |
-| AED-00012 | Change Management | Proposed | ✅ No violations |
-| AED-00013 | Exception Registry | Proposed | ✅ No violations |
-| AED-00014 | Health Metrics | Proposed | ✅ No violations |
+| ADR-00001 | Repository Architectural Vision | Proposed | ✅ No violations |
+| ADR-00002 | Operating Model | Proposed | ✅ No violations |
+| ADR-00003 | Canonical Ontology | Proposed | ✅ No violations |
+| ADR-00004 | Knowledge Architecture | Proposed | ✅ No violations |
+| ADR-00005 | Governance Architecture | Proposed | ✅ No violations |
+| ADR-00006 | Capability Model | Proposed | ✅ No violations |
+| ADR-00007 | Contract Specification | Proposed | ✅ No violations |
+| ADR-00008 | Boot & Discovery | Proposed | ✅ No violations |
+| ADR-00009 | Context Loading | Proposed | ✅ No violations |
+| ADR-00010 | Repository Layout | Proposed | ⚠️ Template structure diverges (intentional) |
+| ADR-00011 | Compliance & Enforcement | Proposed | ✅ No violations |
+| ADR-00012 | Change Management | Proposed | ✅ No violations |
+| ADR-00013 | Exception Registry | Proposed | ✅ No violations |
+| ADR-00014 | Health Metrics | Proposed | ✅ No violations |
 
 ### 2.2 Violations Detected
 
@@ -76,19 +76,19 @@ Per AED-00011 Layer 2 (Invariant Enforcement), the following platform artifacts 
 
 | Missing Artifact | AED Reference | Priority |
 |-----------------|---------------|----------|
-| `governance/platform/platform-manifest.json` | AED-00008 Section 1 | HIGH |
-| `governance/platform/capability-registry.json` | AED-00008 Section 1 | HIGH |
-| `governance/platform/authority-map.json` | AED-00008 Section 1 | HIGH |
-| `knowledge/ontology/canonical.md` | AED-00003 | MEDIUM |
-| `governance/rules/governance-rules.json` | AED-00005 | MEDIUM |
+| `governance/platform/platform-manifest.json` | ADR-00008 Section 1 | HIGH |
+| `governance/platform/capability-registry.json` | ADR-00008 Section 1 | HIGH |
+| `governance/platform/authority-map.json` | ADR-00008 Section 1 | HIGH |
+| `knowledge/ontology/canonical.md` | ADR-00003 | MEDIUM |
+| `governance/rules/governance-rules.json` | ADR-00005 | MEDIUM |
 
-**Note:** These artifacts are intentionally created by `bootstrap.sh` in derived projects rather than existing in the template, per ADR-00001 Domain Separation principle.
+**Note:** These artifacts are intentionally created by `bootstrap.sh` in derived projects rather than existing in the template, per AED-00001 Domain Separation principle.
 
 ## 3. Architectural Audit
 
 ### 3.1 Orchestrator Refactoring Status
 
-**ADR-00002 Orchestrator Refactoring: All Phases Complete ✅**
+**AED-00002 Orchestrator Refactoring: All Phases Complete ✅**
 
 | Phase | Status | Evidence |
 |-------|--------|----------|
@@ -99,7 +99,7 @@ Per AED-00011 Layer 2 (Invariant Enforcement), the following platform artifacts 
 
 ### 3.2 Domain Separation Compliance
 
-**ADR-00001 Domain Separation: COMPLIANT ✅**
+**AED-00001 Domain Separation: COMPLIANT ✅**
 
 - **Template Structure** (this repo) contains only Domain A (Core) and Domain B (Governance Kernel) artifacts
 - **Derived projects** receive Domain C-F artifacts via bootstrap
@@ -129,7 +129,7 @@ Per AED-00011 Layer 2 (Invariant Enforcement), the following platform artifacts 
 |----------|--------|-----------|
 | `scripts/bootstrap.sh` | ✅ Present | SUPREME (Domain A) |
 | Creates Domain C-F directories | ✅ Implemented | Per AED-00010 |
-| Copies governance artifacts | ✅ Implemented | Per ADR-00001 |
+| Copies governance artifacts | ✅ Implemented | Per AED-00001 |
 | Deploys `.kilo/` orchestration | ✅ Implemented | Per orchestrator-contract-v1 |
 
 ### 4.3 State Management
@@ -156,7 +156,7 @@ Per AED-00011 Layer 2 (Invariant Enforcement), the following platform artifacts 
 
 ### 5.3 No Changes Required
 
-- ADR-00002 completion is verified
+- AED-00002 completion is verified
 - Domain separation is correctly implemented
 - Bootstrap script functions correctly
 - Orchestrator capability contract is satisfied
@@ -178,7 +178,7 @@ For derived projects, compliance would be calculated per AED-00011 Section 8:
 |----------------|-------------------|--------|
 | `.kilo/agent/reviewer.md` | ADR-00002 Phase 2 | ✅ Traceable |
 | `.kilo/skills/architecture-audit/SKILL.md` | ADR-00002 Phase 2 | ✅ Traceable |
-| `.kilo/command/implementation-reconcile.md` | AED-00011 | ✅ Traceable |
+| `.kilo/command/implementation-reconcile.md` | ADR-00011 | ✅ Traceable |
 | `scripts/bootstrap.sh` | ADR-00001 | ✅ Traceable |
 | `capabilities/orchestrator/manifest.json` | ADR-00002 | ✅ Traceable |
 
@@ -186,7 +186,7 @@ For derived projects, compliance would be calculated per AED-00011 Section 8:
 
 **Repository Truth Model: CONSISTENT**
 
-The ZenOS template repository is in a valid BOOTSTRAPPED state. All artifacts align with their governing AEDs and ADRs. The orchestrator refactoring (ADR-00002) is complete and verified. Domain separation principles are correctly implemented.
+The ZenOS template repository is in a valid BOOTSTRAPPED state. All artifacts align with their governing AEDs and AEDs. The orchestrator refactoring (* ADR-00002) is complete and verified. Domain separation principles are correctly implemented.
 
 **Next Steps for Platform Maturity:**
 1. Create platform-manifest.json to satisfy AED-00008

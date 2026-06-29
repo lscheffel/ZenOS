@@ -10,8 +10,8 @@ REGISTRY.md is hardcoded during bootstrap. No mechanism to synchronize with actu
 Create `registry-sync` capability that scans and updates REGISTRY.md automatically.
 
 ## Authority
-- AED-00007 (Contract Specification)
-- AED-00010 (Repository Layout)
+- ADR-00007 (Contract Specification)
+- ADR-00010 (Repository Layout)
 
 ## Rationale
 Registry drift between actual repository and hardcoded REGISTRY.md produces institutional inconsistencies. Automation maintains registry accuracy.

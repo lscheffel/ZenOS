@@ -25,6 +25,6 @@ Close wave and prepare next cycle.
 ## Create Handoff
 Create under `${GOVERNANCE_PRE_PLANS}/wave-<wave-id>-handoff.md`.
 
-## Next ADR/Blueprint
+## Next AED/Blueprint
 If recommended, create under `${GOVERNANCE_PRE_PLANS}/` with `Status: Draft` only.
 Move to `${GOVERNANCE_DECISIONS}/` or `${GOVERNANCE_PLANS}/` after review.

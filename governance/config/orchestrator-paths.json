@@ -24,9 +24,9 @@
     "state_file": "STATE.md",
     "changelog_file": "CHANGELOG.md",
     "blueprints": "governance/plans/BP-*.md",
-    "adrs": "governance/decisions/ADR-*.md"
+    "adrs": "governance/decisions/AED-*.md"
   },
 "templates": {
-    "adr": "governance/templates/ADR-template.md"
+    "adr": "governance/templates/AED-template.md"
   }
 }

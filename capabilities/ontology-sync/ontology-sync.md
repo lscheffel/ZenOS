@@ -13,6 +13,6 @@ npm run ontology:sync
 ```
 
 ## Workflow
-1. Scan `knowledge/decisions/` for ADRs
+1. Scan `governance/decisions/` for ADRs
 2. Extract `## Domain Terms` sections
 3. Merge into `knowledge/ontology/canonical.md`

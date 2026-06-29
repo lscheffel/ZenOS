@@ -6,14 +6,14 @@
 - **Scope:** [Full repository or specific paths]
 
 ## Module History Summary
-| Module | Created | ADR Origin | Last Modified | Tradeoff |
+| Module | Created | AED Origin | Last Modified | Tradeoff |
 |--------|---------|------------|---------------|----------|
-| module/path | YYYY-MM-DD | ADR-NNNNN | YYYY-MM-DD | Tradeoff |
+| module/path | YYYY-MM-DD | AED-NNNNN | YYYY-MM-DD | Tradeoff |
 
 ## Decision Traceability
 
 ### Undocumented Decisions
-[Decisões sem ADR registrada]
+[Decisões sem AED registrada]
 
 ### Orphan Modules
 [Modules sem dono registrada]

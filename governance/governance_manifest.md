@@ -66,7 +66,7 @@ Profiles
 >
 Rules
 >
-ADRs
+AEDs
 >
 Implementation
 ```
@@ -139,7 +139,7 @@ Platform sovereignty is non-negotiable.
 
 A decision requires its complete set.
 
-An artifact without its required pairs (ADR, ANL, Plan, TODO) is an incomplete thought.
+An artifact without its required pairs (AED, ANL, Plan, TODO) is an incomplete thought.
 
 Incomplete thoughts have no constitutional authority.
 
@@ -218,7 +218,7 @@ Institutional memory.
 Examples:
 
 ```text
-ADRs
+ADR
 Telemetry
 Reports
 Analysis
@@ -411,7 +411,7 @@ STXs
 The platform never transfers:
 
 ```text
-ADRs
+ADR
 Telemetry
 Reports
 Twins

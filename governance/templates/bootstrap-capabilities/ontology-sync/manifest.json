@@ -8,5 +8,5 @@
   "dependencies": [],
   "assets": ["ontology-sync.sh", "ontology-sync.md"],
   "generators": [],
-  "purpose": "Extract domain terms from ADRs and update knowledge/ontology/canonical.md"
+  "purpose": "Extract domain terms from AEDs and update knowledge/ontology/canonical.md"
 }

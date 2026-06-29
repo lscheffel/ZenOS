@@ -9,7 +9,7 @@ Governed project instance bootstrapped from ZenOS template.
 1. Read AGENTS.md and governance/governance_manifest.md
 2. Register capabilities in capabilities/
 3. Define ontology in knowledge/ontology/
-4. Create ADRs in knowledge/decisions/ for architectural decisions
+4. Create ADRs in governance/decisions/ for architectural decisions
 ```
 
 ## Structure

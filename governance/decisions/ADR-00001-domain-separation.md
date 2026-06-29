@@ -12,7 +12,7 @@ Separar estritamente os domínios da plataforma (template) dos domínios do proj
 ## Authority
 - governance_manifest.md Section 11 (Platform Sovereignty)
 - governance_manifest.md Section 17 (Project Evolution Law)
-- AED-00010 (Repository Layout) §3, §97
+- ADR-00010 (Repository Layout) §3, §97
 
 ## Rationale
 Domain separation ensures sovereignty: template cannot pollute derived projects. Each domain has clear ownership boundaries preventing cross-contamination.

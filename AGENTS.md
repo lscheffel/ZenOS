@@ -783,7 +783,7 @@ The following are prohibited without explicit human operator authorization:
 
 When removal is authorized:
 
-Document the decision as an ADR in `knowledge/decisions/`.
+Document the decision as an AED in `governance/decisions/`.
 
 Preserve the removed artifact in `knowledge/history/`.
 
@@ -826,13 +826,13 @@ Conversation is not durable storage (AED-00004 Section 3).
 
 | Activity | Required Artifact | Location |
 | --- | --- | --- |
-| Architectural decision | ADR | `knowledge/decisions/` |
+| Architectural decision | AED | `governance/decisions/` |
 | New capability | Contract | `capabilities/{type}/` |
 | Governance change | Change Proposal → AED | `governance/directives/` |
 | Governance exception | Exception Record | `governance/exceptions/` |
 | Bug root cause | Analysis | `runtime/analysis/` |
-| Significant refactor | ADR + Test evidence | `knowledge/decisions/` |
-| New dependency | Dependency justification | `knowledge/decisions/` |
+| Significant refactor | AED + Test evidence | `governance/decisions/` |
+| New dependency | Dependency justification | `governance/decisions/` |
 | Session handoff | Handoff record | `runtime/session/` |
 
 No significant architectural knowledge may exist only in conversation.

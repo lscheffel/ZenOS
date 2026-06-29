@@ -1,7 +1,7 @@
 # ADR-NNNNN: [Título da Decisão]
 
 ## Status
-[SUGGESTED | APPROVED | REJECTED | SUPERSEDED]
+[APPROVED | REJECTED]
 
 ## Context
 [Descrição do problema ou oportunidade - qual decisão precisa ser tomada e por que]
