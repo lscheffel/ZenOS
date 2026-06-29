@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZenOS Wiki</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
-  </script>
   <style>
     :root {
       --bg: #0d1117;
@@ -14,624 +12,96 @@
       --muted: #8b949e;
       --accent: #58a6ff;
       --border: #30363d;
-      --shadow: 0 1px 0 rgba(1, 4, 9, 0.65);
-      --radius: 6px;
-      --max-w: 1100px;
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.55;
+      line-height: 1.6;
     }
-    .app {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      min-height: 100vh;
-    }
-    .sidebar {
-      background: var(--sidebar-bg);
-      border-right: 1px solid var(--border);
-      padding: 24px 18px 24px 22px;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    .brand {
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: -0.2px;
-      margin-bottom: 4px;
-    }
-    .brand-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-    .nav { display: flex; flex-direction: column; gap: 6px; }
-    .nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      padding: 6px 8px;
-      border-radius: var(--radius);
-      border: 1px solid transparent;
-    }
-    .nav a:hover {
-      background: #21262d;
-      border-color: var(--border);
-    }
-    .nav .section {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-top: 10px;
-      padding-left: 8px;
-    }
-    .content {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      width: 100%;
-      padding: 40px 32px 80px;
-    }
-    h1 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.6px; }
-    .lead { font-size: 16px; color: var(--muted); margin-bottom: 28px; }
-    h2 {
-      font-size: 20px;
-      margin: 36px 0 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    ul { padding-left: 20px; margin: 8px 0 14px; }
-    li { margin: 5px 0; }
-    a.code {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a.code:hover { text-decoration: underline; }
-    .note {
-      background: var(--sidebar-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      font-size: 14px;
-      color: var(--muted);
-      margin: 14px 0 18px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-    .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      background: var(--bg);
-      box-shadow: var(--shadow);
-    }
-    .card h3 { font-size: 14px; margin: 0 0 6px; }
-    .card p { font-size: 13px; color: var(--muted); margin: 0; }
-    code {
-      background: rgba(139, 148, 158, 0.25);
-      padding: 0.1em 0.4em;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-    .column-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    @media (max-width: 860px) {
-      .app { grid-template-columns: 1fr; }
-      .sidebar { height: auto; position: relative; }
-    }
-  </style>
-
-  <style>
-    .viewer {
-      margin-top: 28px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--bg);
-      overflow: hidden;
-    }
-    .viewer-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
-      background: var(--sidebar-bg);
-    }
-    .viewer-header strong {
-      font-size: 13px;
-      color: var(--text);
-    }
-    .viewer-header a {
-      font-size: 12px;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .viewer-body {
-      padding: 18px;
-      overflow-x: auto;
-    }
-    .viewer-body img {
-      max-width: 100%;
-    }
-    .viewer-body pre {
-      background: rgba(139,148,158,0.15);
-      padding: 14px;
-      border-radius: var(--radius);
-      overflow: auto;
-    }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 28px; margin: 0 0 16px; }
+    h2 { font-size: 22px; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 16px; margin: 0 0 8px; color: var(--accent); }
+    p { margin: 0 0 16px; }
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .card { border: 1px solid var(--border); border-radius: 6px; padding: 16px; background: var(--sidebar-bg); }
+    .note { background: var(--sidebar-bg); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin: 20px 0; font-size: 14px; color: var(--muted); }
+    code { background: rgba(139, 148, 158, 0.25); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
   </style>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <div class="brand">ZenOS Wiki</div>
-      <div class="brand-sub">Sovereign Governance Platform</div>
-      <nav class="nav">
-        <div class="section">Início</div>
-        <a href="#overview">Visão geral</a>
-        <a href="#structure">Estrutura canônica</a>
-        <a href="#quickstart">Quickstart</a>
-        <a href="#registry">Registry and state</a>
+  <div class="container">
+    <h1>ZenOS Wiki</h1>
+    <p>Sovereign Governance Platform — Documentação canônica do repositório.</p>
 
-        <div class="section">Governança</div>
-        <a href="../governance/governance_manifest.md">Manifesto</a>
-        <a href="../governance/document-authority.json">Document authority</a>
-        <a href="#aeds">Diretivos</a>
-        <a href="#governance-reports">Relatórios e mudanças</a>
-        <a href="#governance-meta">Configuração e estado</a>
-        <a href="#governance-exceptions">Exceções</a>
+    <div class="note">
+      <strong>Nota:</strong> Esta documentação é publicada via GitHub Pages. Os links abaixo abrem os arquivos no GitHub.
+    </div>
 
-        <div class="section">Conhecimento</div>
-        <a href="../knowledge/ontology/canonical.md">Ontologia canônica</a>
-        <a href="#adrs">Decisões arquiteturais</a>
+    <h2>Visão Geral</h2>
+    <p>ZenOS é uma plataforma de governança para ecossistemas de software, organizada em domínios arquiteturais:</p>
+    <ul>
+      <li><strong>governance/</strong> — diretivos (AEDs), constraints, policies, standards, decisões (ADRs), templates, state</li>
+      <li><strong>knowledge/</strong> — ontologia, especificações, glossários</li>
+      <li><strong>capabilities/</strong> — agents, skills, workflows executáveis</li>
+      <li><strong>runtime/</strong> — estado transitório</li>
+    </ul>
 
-        <div class="section">Capabilities</div>
-        <a href="../capabilities/ontology-sync/">ontology-sync</a>
-        <a href="../capabilities/registry-sync/">registry-sync</a>
+    <h2>Boot Order</h2>
+    <ol>
+      <li><code>AGENTS.md</code> — identidade e protocolo de execução</li>
+      <li><code>governance/governance_manifest.md</code> — manifesto da plataforma</li>
+      <li><code>governance/directives/AED-*.md</code> — diretivas arquiteturais</li>
+      <li><code>governance/document-authority.json</code> — autoridade por artefato</li>
+      <li><code>REGISTRY.md</code> — inventário canônico</li>
+    </ol>
 
-        <div class="section">CLI</div>
-        <a href="#kilo-commands">Comandos</a>
-        <a href="#kilo-skills">Skills</a>
-        <a href="#kilo-agents">Agents</a>
+    <h2>Diretivas Arquiteturais (AEDs)</h2>
+    <p>14 diretivas fundamentais em <code>governance/directives/</code>:</p>
+    <div class="grid">
+      <div class="card"><h3>AED-00001</h3><p>Visão arquitetural e princípios fundacionais.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00001.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00002</h3><p>Operating Model.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00002.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00003</h3><p>Ontologia canônica.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00003.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00004</h3><p>Knowledge Architecture.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00004.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00005</h3><p>Governance Architecture.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00005.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00006</h3><p>Capability Model.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00006.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00007</h3><p>Contract Specification.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00007.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00008</h3><p>Boot & Discovery.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00008.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00009</h3><p>Context Loading.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00009.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00010</h3><p>Repository Layout.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00010.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00011</h3><p>Compliance & Enforcement.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00011.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00012</h3><p>Change Management.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00012.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00013</h3><p>Exception Registry.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00013.md">Ver documento</a></div>
+      <div class="card"><h3>AED-00014</h3><p>Health Metrics.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/directives/AED-00014.md">Ver documento</a></div>
+      <div class="card"><h3>Ver todos</h3><p>Diretivas completas.</p><a href="https://github.com/lscheffel/ZenOS/tree/main/governance/directives">Diretório</a></div>
+    </div>
 
-        <div class="section">Avançado</div>
-        <a href="#runtime">Runtime</a>
-        <a href="#scripts">Scripts</a>
-        <a href="#templates">Templates</a>
-      </nav>
-    </aside>
+    <h2>Decisões Arquiteturais (ADRs)</h2>
+    <p>Decisões de projeto em <code>governance/decisions/</code>:</p>
+    <div class="grid">
+      <div class="card"><h3>ADR-00001</h3><p>Domain Separation.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/decisions/ADR-00001-domain-separation.md">Ver documento</a></div>
+      <div class="card"><h3>ADR-00002</h3><p>Orchestrator Refactoring.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/decisions/ADR-00002-orchestrator-refactoring.md">Ver documento</a></div>
+      <div class="card"><h3>ADR-00003</h3><p>Registry Sync Capability.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/decisions/ADR-00003-registry-sync.md">Ver documento</a></div>
+      <div class="card"><h3>ADR-00004</h3><p>Ontology Sync Capability.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/decisions/ADR-00004-ontology-sync.md">Ver documento</a></div>
+      <div class="card"><h3>ADR-00005</h3><p>Template Reconciliation.</p><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/decisions/ADR-00005-template-reconciliation.md">Ver documento</a></div>
+      <div class="card"><h3>Ver todas</h3><p>Diretório de decisões.</p><a href="https://github.com/lscheffel/ZenOS/tree/main/governance/decisions">Diretório</a></div>
+    </div>
 
-    <main class="content">
-      <h1>ZenOS Wiki</h1>
-      <p class="lead">
-        Documentação viva do repositório. Consulte diretamente os artefatos canônicos ou use este índice como ponto de entrada.
-      </p>
-
-      <div class="note">
-        <strong>Nota:</strong> Esta página é publicada via GitHub Pages como documentação estática. Para artefatos formalmente versionados, acesse os arquivos Markdown originais do repositório.
-      </div>
-
-      <h2 id="overview">Visão geral</h2>
-      <p>
-        O ZenOS é uma <strong>Sovereign Governance Platform</strong> projetada para governar a evolução de ecossistemas de software independentemente de repositórios, modelos ou runtimes específicos.
-      </p>
-      <p>
-        A arquitetura organiza o conhecimento, governança, capabilities e estado de forma explícita, minimizando ambiguidade e inferência não fundamentada.
-      </p>
-
-      <h2 id="quickstart">Quickstart</h2>
-      <p>Para trabalhar com o repositório, siga a ordem canônica:</p>
-      <ol>
-        <li><code>AGENTS.md</code> — identidade, prioridades e protocolo de execução.</li>
-        <li><code>governance/governance_manifest.md</code> — manifesto e coroa de autoridade.</li>
-        <li><code>governance/directives/</code> — diretivos arquiteturais.</li>
-        <li><code>governance/document-authority.json</code> — modelo de autoridade por artefato.</li>
-        <li><code>REGISTRY.md</code> — inventário canônico.</li>
-      </ol>
-
-      <h2 id="structure">Estrutura canônica</h2>
-      <p>O repositório segue um layout baseado em domínios arquiteturais:</p>
-      <ul>
-        <li><strong>governance/</strong> — diretivos, constraints, policies, standards, decisões, templates, state, reports, exceptions, platform e config.</li>
-        <li><strong>knowledge/</strong> — ontologia, especificações, glossários, padrões, decisões arquiteturais (AEDs) e histórico.</li>
-        <li><strong>capabilities/</strong> — agents, skills, workflows e geradores executáveis.</li>
-        <li><strong>runtime/</strong> — estado transitório (sessões, análise, tasks assíncronas).</li>
-        <li><strong>.kilo/</strong> — configuração runtime: agents, commands, skills, scripts e package metadata.</li>
-        <li><strong>scripts/</strong> — bootstrap e utilitários do repositório.</li>
-        <li><strong>REGISTRY.md</strong> — inventário canônico do repositório.</li>
-        <li><strong>AGENTS.md</strong> — constituição e protocolo de execução.</li>
-      </ul>
-
-      <h2 id="registry">Registry and state</h2>
-      <div class="column-2">
-        <div class="card">
-          <h3><code>REGISTRY.md</code></h3>
-          <p>Inventário canônico com capabilities, decisões, templates, status de sincronização e change proposals.</p>
-          <a class="code" href="../REGISTRY.md">Abrir REGISTRY.md</a>
-        </div>
-        <div class="card">
-          <h3><code>governance/document-authority.json</code></h3>
-          <p>Authority model por artefato com domain, owner, lifecyle e mutability.</p>
-          <a class="code" href="../governance/document-authority.json">Abrir document authority</a>
-        </div>
-        <div class="card">
-          <h3><code>governance/state/template_state.json</code></h3>
-          <p>Estado base para projetos derivados do template.</p>
-          <a class="code" href="../governance/state/template_state.json">Abrir state template</a>
-        </div>
-        <div class="card">
-          <h3><code>governance/platform/capability-registry.json</code></h3>
-          <p>Registro de capabilities da plataforma.</p>
-          <a class="code" href="../governance/platform/capability-registry.json">Abrir registry</a>
-        </div>
-      </div>
-
-      <h2 id="aeds">Diretivos arquiteturais</h2>
-      <p>Os AEDs definem a arquitetura, comportamento e enforcement do sistema:</p>
-      <div class="grid">
-        <div class="card">
-          <h3>AED-00001</h3>
-          <p>Visão arquitetural e princípios fundacionais.</p>
-          <a class="code" href="../governance/directives/AED-00001.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00002</h3>
-          <p>Operating Model.</p>
-          <a class="code" href="../governance/directives/AED-00002.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00003</h3>
-          <p>Ontologia canônica e vocabulário.</p>
-          <a class="code" href="../governance/directives/AED-00003.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00004</h3>
-          <p>Knowledge Architecture.</p>
-          <a class="code" href="../governance/directives/AED-00004.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00005</h3>
-          <p>Arquitetura de governança.</p>
-          <a class="code" href="../governance/directives/AED-00005.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00006</h3>
-          <p>Capability Model.</p>
-          <a class="code" href="../governance/directives/AED-00006.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00007</h3>
-          <p>Contract Specification.</p>
-          <a class="code" href="../governance/directives/AED-00007.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00008</h3>
-          <p>Boot and discovery.</p>
-          <a class="code" href="../governance/directives/AED-00008.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00009</h3>
-          <p>Context loading.</p>
-          <a class="code" href="../governance/directives/AED-00009.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00010</h3>
-          <p>Canonical repository layout.</p>
-          <a class="code" href="../governance/directives/AED-00010.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00011</h3>
-          <p>Compliance and enforcement.</p>
-          <a class="code" href="../governance/directives/AED-00011.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00012</h3>
-          <p>Mudança de governança.</p>
-          <a class="code" href="../governance/directives/AED-00012.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00013</h3>
-          <p>Exception registry.</p>
-          <a class="code" href="../governance/directives/AED-00013.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>AED-00014</h3>
-          <p>Health metrics.</p>
-          <a class="code" href="../governance/directives/AED-00014.md">Ler documento</a>
-        </div>
-        <div class="card">
-          <h3>Diretives completo</h3>
-          <p>Navegue todos os diretivos em <code>governance/directives/</code>.</p>
-          <a class="code" href="../governance/directives/">Ver todos</a>
-        </div>
-      </div>
-
-      <h2 id="adrs">Decisões arquiteturais (ADRs)</h2>
-      <p>Registro de decisões técnicas ou arquiteturais.</p>
-      <div class="column-2">
-        <div class="card">
-          <h3>ADR-00001 — Domain Separation</h3>
-          <p>Separação formal de domínios do repositório.</p>
-          <a class="code" href="../governance/decisions/ADR-00001-domain-separation.md">Ler ADR</a>
-        </div>
-        <div class="card">
-          <h3>ADR-00002 — Orchestrator Refactoring</h3>
-          <p>Refatoringa do orquestrador.</p>
-          <a class="code" href="../governance/decisions/ADR-00002-orchestrator-refactoring.md">Ler ADR</a>
-        </div>
-        <div class="card">
-          <h3>ADR-00003 — Registry Sync</h3>
-          <p>Capability de sincronização do registry.</p>
-          <a class="code" href="../governance/decisions/ADR-00003-registry-sync.md">Ler ADR</a>
-        </div>
-        <div class="card">
-          <h3>ADR-00004 — Ontology Sync</h3>
-          <p>Capability de sincronização de ontologia.</p>
-          <a class="code" href="../governance/decisions/ADR-00004-ontology-sync.md">Ler ADR</a>
-        </div>
-        <div class="card">
-          <h3>ADR-00005 — Template Reconciliation</h3>
-          <p>Reconciliação de templates e artefatos derivados.</p>
-          <a class="code" href="../governance/decisions/ADR-00005-template-reconciliation.md">Ler ADR</a>
-        </div>
-        <div class="card">
-          <h3>ADRs completo</h3>
-          <p>Acesso indexado em <code>governance/decisions/</code>.</p>
-          <a class="code" href="../governance/decisions/">Ver diretório</a>
-        </div>
-      </div>
-
-      <h2 id="governance-reports">Governance — relatórios e change proposals</h2>
-      <p>Histórico operacional, change proposals e relatórios de reconciliação:</p>
-      <ul>
-        <li><a class="code" href="../governance/reports/">Listar reports</a> — relatórios gerados pela governança.</li>
-        <li><a class="code" href="../governance/reports/gh-pages-change-proposal.md">GH-PAGES-00001 Change Proposal</a> — publicação no GitHub Pages.</li>
-      </ul>
-
-      <h2 id="governance-meta">Governança — configuração e estado</h2>
-      <p>Arquivos de configuração e state usados pelo repositório:</p>
-      <ul>
-        <li><a class="code" href="../governance/document-authority.json">Document authority</a></li>
-        <li><a class="code" href="../governance/state/template_state.json">Template state</a></li>
-        <li><a class="code" href="../governance/platform/capability-registry.json">Capability registry</a></li>
-        <li><a class="code" href="../governance/config/orchestrator-paths.json">Orchestrator paths</a></li>
-      </ul>
-
-      <h2 id="governance-exceptions">Governança — exceções</h2>
-      <p>Registro de exceções a regras de governança.</p>
-      <ul>
-        <li><a class="code" href="../governance/exceptions/">Diretório de exceptions</a></li>
-      </ul>
-
-      <h2 id="knowledge">Conhecimento</h2>
-      <ul>
-        <li><a class="code" href="../knowledge/ontology/canonical.md">Ontologia canônica</a> — vocabulário oficial.</li>
-        <li><a class="code" href="../governance/decisions/">Decisões arquiteturais (ADRs)</a> — histórico.</li>
-        <li><a class="code" href="../governance/templates/">Templates</a> — modelos de AED, README, contratos e outros artefatos.</li>
-      </ul>
-
-      <h2 id="capabilities">Capabilities</h2>
-      <p>Capabilities são entidades executáveis registradas no repositório:</p>
-      <ul>
-        <li><a class="code" href="../capabilities/ontology-sync/">ontology-sync</a> — sincronização de termos da ontologia.</li>
-        <li><a class="code" href="../capabilities/registry-sync/">registry-sync</a> — sincronização do REGISTRY.md.</li>
-      </ul>
-
-      <h2 id="kilo-commands">Comandos</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>docs-reconcile</h3>
-          <p>Reconcilia documentação oficial do repositório.</p>
-          <a class="code" href="../.kilo/command/docs-reconcile.md">Ver comando</a>
-        </div>
-        <div class="card">
-          <h3>implementation-reconcile</h3>
-          <p>Verifica alinhamento código/documentação.</p>
-          <a class="code" href="../.kilo/command/implementation-reconcile.md">Ver comando</a>
-        </div>
-        <div class="card">
-          <h3>manifest-validate</h3>
-          <p>Valida manifestos do repositório.</p>
-          <a class="code" href="../.kilo/command/manifest-validate.md">Ver comando</a>
-        </div>
-        <div class="card">
-<h3>pipeline-cross-adr</h3>
-           <p>Pipeline cruzado com ADRs.</p>
-          <a class="code" href="../.kilo/command/pipeline-cross-adr.md">Ver comando</a>
-        </div>
-        <div class="card">
-          <h3>security-scan</h3>
-          <p>Scan de segurança.</p>
-          <a class="code" href="../.kilo/command/security-scan.md">Ver comando</a>
-        </div>
-        <div class="card">
-          <h3>sync-state</h3>
-          <p>Sincronização de state.</p>
-          <a class="code" href="../.kilo/command/sync-state.md">Ver comando</a>
-        </div>
-        <div class="card">
-          <h3>wave-close</h3>
-          <p>Fecha wave de trabalho.</p>
-          <a class="code" href="../.kilo/command/wave-close.md">Ver comando</a>
-        </div>
-        <div class="card">
-          <h3>Comandos completo</h3>
-          <p>Catálogo em <code>.kilo/command/</code>.</p>
-          <a class="code" href="../.kilo/command/">Ver todos</a>
-        </div>
-      </div>
-
-      <h2 id="kilo-skills">Skills</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>architecture-audit</h3>
-          <p>Audita arquitetura e drift.</p>
-          <a class="code" href="../.kilo/skills/architecture-audit/SKILL.md">Ver skill</a>
-        </div>
-        <div class="card">
-          <h3>release-manager</h3>
-          <p>Orquestra release e empacotamento.</p>
-          <a class="code" href="../.kilo/skills/release-manager/SKILL.md">Ver skill</a>
-        </div>
-        <div class="card">
-          <h3>roadmap-governance</h3>
-          <p>Reconcilia roadmap com realidade.</p>
-          <a class="code" href="../.kilo/skills/roadmap-governance/SKILL.md">Ver skill</a>
-        </div>
-        <div class="card">
-          <h3>security-audit</h3>
-          <p>Audita secrets, dependências e artefatos.</p>
-          <a class="code" href="../.kilo/skills/security-audit/SKILL.md">Ver skill</a>
-        </div>
-      </div>
-
-      <h2 id="kilo-agents">Agents</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>docs</h3>
-          <p>Agente de documentação.</p>
-          <a class="code" href="../.kilo/agent/docs.md">Ver agent</a>
-        </div>
-        <div class="card">
-          <h3>release</h3>
-          <p>Agente de release.</p>
-          <a class="code" href="../.kilo/agent/release.md">Ver agent</a>
-        </div>
-        <div class="card">
-          <h3>reviewer</h3>
-          <p>Agente de revisão local.</p>
-          <a class="code" href="../.kilo/agent/reviewer.md">Ver agent</a>
-        </div>
-        <div class="card">
-          <h3>security</h3>
-          <p>Agente de segurança.</p>
-          <a class="code" href="../.kilo/agent/security.md">Ver agent</a>
-        </div>
-      </div>
-
-      <h2 id="runtime">Runtime</h2>
-      <p>Estado transitório da execução atual:</p>
-      <ul>
-        <li><a class="code" href="../runtime/">Runtime completo</a></li>
-        <li><a class="code" href="../runtime/analysis/">Análises</a></li>
-        <li><a class="code" href="../runtime/session/">Sessões</a></li>
-      </ul>
-
-      <h2 id="scripts">Scripts</h2>
-      <ul>
-        <li><a class="code" href="../scripts/bootstrap.sh">bootstrap.sh</a> — script de bootstrap do repositório.</li>
-      </ul>
-
-      <h2 id="templates">Templates</h2>
-      <p>Templates e contratos disponíveis em <code>governance/templates/</code>.</p>
-      <div class="grid">
-        <div class="card">
-          <h3>README-template.md</h3>
-          <p>Template de README para projetos derivados.</p>
-          <a class="code" href="../governance/templates/README-template.md">Abrir template</a>
-        </div>
-        <div class="card">
-          <h3>AGENTS-template.md</h3>
-          <p>Template de AGENTS.md.</p>
-          <a class="code" href="../governance/templates/AGENTS-template.md">Abrir template</a>
-        </div>
-        <div class="card">
-          <h3>ADR-template.md</h3>
-          <p>Template de ADR/AED.</p>
-          <a class="code" href="../governance/templates/ADR-template.md">Abrir template</a>
-        </div>
-        <div class="card">
-          <h3>Templates completo</h3>
-          <p>Navegue todos em <code>governance/templates/</code>.</p>
-          <a class="code" href="../governance/templates/">Ver diretório</a>
-        </div>
-      </div>
-
-      <div class="note">
-        Página gerada como documentação estática para GitHub Pages. Conteúdo baseado em artefatos versionados do repositório.
-      </div>
-      <div id="viewer" class="viewer" style="display:none">
-        <div class="viewer-header">
-          <strong id="viewer-title">Documento</strong>
-          <a id="viewer-raw" href="#" target="_blank">Abrir raw</a>
-          <a id="viewer-close" href="#">Fechar</a>
-        </div>
-        <div id="viewer-body" class="viewer-body"></div>
-      </div>
-    </main>
+    <h2>Artefatos Centrais</h2>
+    <ul>
+      <li><a href="https://github.com/lscheffel/ZenOS/blob/main/REGISTRY.md">REGISTRY.md</a> — inventário canônico</li>
+      <li><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/governance_manifest.md">governance_manifest.md</a> — manifesto constitucional</li>
+      <li><a href="https://github.com/lscheffel/ZenOS/blob/main/governance/document-authority.json">document-authority.json</a> — autoridade por artefato</li>
+      <li><a href="https://github.com/lscheffel/ZenOS/blob/main/knowledge/ontology/canonical.md">canonical.md</a> — ontologia canônica</li>
+      <li><a href="https://github.com/lscheffel/ZenOS/blob/main/scripts/bootstrap.sh">bootstrap.sh</a> — script de bootstrap</li>
+    </ul>
   </div>
-  <script>
-    (function () {
-      const viewer = document.getElementById("viewer");
-      const viewerTitle = document.getElementById("viewer-title");
-      const viewerBody = document.getElementById("viewer-body");
-      const viewerRaw = document.getElementById("viewer-raw");
-      const viewerClose = document.getElementById("viewer-close");
-
-      function closeViewer() {
-        viewer.style.display = "none";
-        viewerBody.innerHTML = "";
-        viewerRaw.href = "#";
-        viewerTitle.textContent = "Documento";
-      }
-
-      function openViewer(url, title) {
-        viewerTitle.textContent = title || "Documento";
-        viewerRaw.href = url;
-        viewer.style.display = "block";
-        viewerBody.innerHTML =
-          '<p style="color:var(--muted);padding:12px">Carregando…</p>';
-        fetch(url)
-          .then((res) => {
-            if (!res.ok) throw new Error("HTTP " + res.status);
-            return res.text();
-          })
-          .then((text) => {
-            viewerBody.innerHTML = marked.parse(text);
-          })
-          .catch((err) => {
-            viewerBody.innerHTML =
-              "<p style='color:#ff7b72'>Erro ao carregar documento: " +
-              err.message +
-              "</p>";
-          });
-      }
-
-      document.body.addEventListener("click", function (e) {
-        const link = e.target.closest("a");
-        if (!link) return;
-        const href = link.getAttribute("href");
-        if (!href || href === "#" || href.startsWith("#")) return;
-        const isMd = href.endsWith(".md") || href.endsWith(".markdown");
-        const isRawText = href.endsWith(".json");
-        if (!isMd && !isRawText) return;
-
-        e.preventDefault();
-        const title = link.textContent.trim();
-        openViewer(href, title);
-      });
-
-      viewerClose.addEventListener("click", function (e) {
-        e.preventDefault();
-        closeViewer();
-      });
-    })();
-  </script>
 </body>
 </html>
