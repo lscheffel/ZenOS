@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<div class="domain-page runtime">
+  <header class="domain-header">
+    <div class="domain-badge">RUNTIME</div>
+    <h1>{{ page.title | default: "Runtime" }}</h1>
+    <p class="domain-description">{{ page.description | default: "Transient operational state — sessions, analysis, and working memory." }}</p>
+  </header>
+
+  <nav class="domain-nav" aria-label="Runtime navigation">
+    <ul class="domain-links">
+      <li><a href="{{ '/runtime/session/' | relative_url }}">Active Sessions</a></li>
+      <li><a href="{{ '/runtime/analysis/' | relative_url }}">Analysis Artifacts</a></li>
+      <li><a href="{{ '/runtime/tasks/' | relative_url }}">Active Tasks</a></li>
+      <li><a href="{{ '/runtime/state/' | relative_url }}">Working State</a></li>
+    </ul>
+  </nav>
+
+  <div class="domain-content">
+    {{ content }}
+  </div>
+
+  {% if page.collection == 'runtime' %}
+  <section class="collection-index">
+    <h2>{{ page.collection_name | default: "Runtime Artifacts" }}</h2>
+    <ul class="document-list">
+      {% assign docs = site.runtime | where: "category", page.category | sort: "navigation_weight" %}
+      {% for doc in docs %}
+        <li>
+          <a href="{{ doc.url | relative_url }}">
+            <span class="doc-id">{{ doc.id | default: doc.title }}</span>
+            <span class="doc-title">{{ doc.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</div>

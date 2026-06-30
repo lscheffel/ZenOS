@@ -1,4 +1,155 @@
-title: ZenOS Wiki
-description: Sovereign Governance Platform
-theme: jekyll-theme-cayman
+# ZenOS Documentation — Jekyll Configuration
+# Authority: ADR-00006 (Documentation Platform Migration)
+# Deterministic build configuration for GitHub Pages
+
+# Site Identity
+title: "ZenOS Documentation"
+description: "Sovereign Governance Platform — Canonical Documentation"
+url: "https://lscheffel.github.io"
+baseurl: "/ZenOS"
+
+# Build Configuration
+source: .
+destination: ./_site
+incremental: false
+regenerate: true
+
+# Markdown Processing
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    bold_every: 8
+    line_numbers: false
+  toc_levels: 1..3
+  auto_ids: true
+  entity_output: as_char
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Permalink Strategy (ADR-00006: Stable Information Architecture)
+permalink: /:path/
+permalink_style: pretty
+
+# Collections (Domain-Oriented Organization per ADR-00006)
+collections:
+  governance:
+    output: true
+    permalink: /governance/:path/
+  knowledge:
+    output: true
+    permalink: /knowledge/:path/
+  capabilities:
+    output: true
+    permalink: /capabilities/:path/
+  runtime:
+    output: true
+    permalink: /runtime/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "governance"
+    values:
+      layout: "governance"
+      domain: "governance"
+  - scope:
+      path: ""
+      type: "knowledge"
+    values:
+      layout: "knowledge"
+      domain: "knowledge"
+  - scope:
+      path: ""
+      type: "capabilities"
+    values:
+      layout: "capabilities"
+      domain: "capabilities"
+  - scope:
+      path: ""
+      type: "runtime"
+    values:
+      layout: "runtime"
+      domain: "runtime"
+
+# Plugins (ADR-00006: GitHub Pages Configuration)
+plugins:
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Relative Links (ADR-00006: Link Strategy — Relative Navigation)
+relative_links:
+  enabled: true
+  collections: true
+  include:
+    - "*.md"
+    - "*.html"
+  exclude:
+    - "*.pdf"
+
+# SEO & Metadata
+lang: "en"
+timezone: "UTC"
+encoding: "utf-8"
+
+# Exclude from Build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .github
+  - scripts
+  - "*.gemspec"
+  - README.md
+  - LICENSE
+  - CNAME
+
+# Include in Build
+include:
+  - "_redirects"
+  - ".well-known"
+
+# Strict Front Matter (Fail on missing required fields)
+strict_front_matter: true
+
+# Future Posts
+future: false
+
+# Pagination (for future blog/changelog)
+paginate: 10
+paginate_path: "/page:num/"
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+# Sass/SCSS (for custom styling)
+sass:
+  style: compressed
+  sourcemap: never
+
+# Theme (using minimal theme as base, custom layouts in _layouts)
+theme: "minima"
+
+# Custom Variables
+zenos:
+  version: "1.0.0"
+  repository: "https://github.com/lscheffel/ZenOS"
+  governance_repo: "https://github.com/lscheffel/ZenOS/tree/main/governance"

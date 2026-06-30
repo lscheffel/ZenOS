@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<div class="domain-page knowledge">
+  <header class="domain-header">
+    <div class="domain-badge">KNOWLEDGE</div>
+    <h1>{{ page.title | default: "Knowledge" }}</h1>
+    <p class="domain-description">{{ page.description | default: "Architectural understanding — specifications, ontology, and glossaries." }}</p>
+  </header>
+
+  <nav class="domain-nav" aria-label="Knowledge navigation">
+    <ul class="domain-links">
+      <li><a href="{{ '/knowledge/ontology/' | relative_url }}">Ontology</a></li>
+      <li><a href="{{ '/knowledge/specifications/' | relative_url }}">Specifications</a></li>
+      <li><a href="{{ '/knowledge/glossary/' | relative_url }}">Glossary</a></li>
+      <li><a href="{{ '/knowledge/patterns/' | relative_url }}">Patterns</a></li>
+      <li><a href="{{ '/knowledge/history/' | relative_url }}">History</a></li>
+    </ul>
+  </nav>
+
+  <div class="domain-content">
+    {{ content }}
+  </div>
+
+  {% if page.collection == 'knowledge' %}
+  <section class="collection-index">
+    <h2>{{ page.collection_name | default: "Documents" }}</h2>
+    <ul class="document-list">
+      {% assign docs = site.knowledge | where: "category", page.category | sort: "navigation_weight" %}
+      {% for doc in docs %}
+        <li>
+          <a href="{{ doc.url | relative_url }}">
+            <span class="doc-id">{{ doc.id | default: doc.title }}</span>
+            <span class="doc-title">{{ doc.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</div>

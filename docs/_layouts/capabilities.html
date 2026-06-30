@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="domain-page capabilities">
+  <header class="domain-header">
+    <div class="domain-badge">CAPABILITIES</div>
+    <h1>{{ page.title | default: "Capabilities" }}</h1>
+    <p class="domain-description">{{ page.description | default: "Executable behavior — agents, skills, workflows, and validators." }}</p>
+  </header>
+
+  <nav class="domain-nav" aria-label="Capabilities navigation">
+    <ul class="domain-links">
+      <li><a href="{{ '/capabilities/agents/' | relative_url }}">Agents</a></li>
+      <li><a href="{{ '/capabilities/skills/' | relative_url }}">Skills</a></li>
+      <li><a href="{{ '/capabilities/workflows/' | relative_url }}">Workflows</a></li>
+      <li><a href="{{ '/capabilities/validators/' | relative_url }}">Validators</a></li>
+      <li><a href="{{ '/capabilities/generators/' | relative_url }}">Generators</a></li>
+      <li><a href="{{ '/capabilities/templates/' | relative_url }}">Templates</a></li>
+    </ul>
+  </nav>
+
+  <div class="domain-content">
+    {{ content }}
+  </div>
+
+  {% if page.collection == 'capabilities' %}
+  <section class="collection-index">
+    <h2>{{ page.collection_name | default: "Capabilities" }}</h2>
+    <ul class="document-list">
+      {% assign docs = site.capabilities | where: "category", page.category | sort: "navigation_weight" %}
+      {% for doc in docs %}
+        <li>
+          <a href="{{ doc.url | relative_url }}">
+            <span class="doc-id">{{ doc.id | default: doc.title }}</span>
+            <span class="doc-title">{{ doc.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</div>

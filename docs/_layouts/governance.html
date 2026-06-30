@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="domain-page governance">
+  <header class="domain-header">
+    <div class="domain-badge">GOVERNANCE</div>
+    <h1>{{ page.title | default: "Governance" }}</h1>
+    <p class="domain-description">{{ page.description | default: "Constitutional governance kernel — directives, decisions, and enforcement." }}</p>
+  </header>
+
+  <nav class="domain-nav" aria-label="Governance navigation">
+    <ul class="domain-links">
+      <li><a href="{{ '/governance/directives/' | relative_url }}">Directives (AEDs)</a></li>
+      <li><a href="{{ '/governance/decisions/' | relative_url }}">Decisions (ADRs)</a></li>
+      <li><a href="{{ '/governance/templates/' | relative_url }}">Templates</a></li>
+      <li><a href="{{ '/governance/execution/' | relative_url }}">Execution Plans</a></li>
+      <li><a href="{{ '/governance/reports/' | relative_url }}">Reports</a></li>
+      <li><a href="{{ '/governance/exceptions/' | relative_url }}">Exceptions</a></li>
+    </ul>
+  </nav>
+
+  <div class="domain-content">
+    {{ content }}
+  </div>
+
+  {% if page.collection == 'governance' %}
+  <section class="collection-index">
+    <h2>{{ page.collection_name | default: "Documents" }}</h2>
+    <ul class="document-list">
+      {% assign docs = site.governance | where: "category", page.category | sort: "navigation_weight" %}
+      {% for doc in docs %}
+        <li>
+          <a href="{{ doc.url | relative_url }}">
+            <span class="doc-id">{{ doc.id | default: doc.title }}</span>
+            <span class="doc-title">{{ doc.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</div>
