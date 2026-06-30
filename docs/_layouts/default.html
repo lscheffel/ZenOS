@@ -7,14 +7,17 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   {% seo %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
     <div class="wrapper header-inner">
-      <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
+        <span>{{ site.title }}</span>
+      </a>
 
       <nav class="site-nav" role="navigation" aria-label="Main navigation">
         <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
@@ -24,16 +27,14 @@
         <a class="nav-link" href="{{ '/knowledge/' | relative_url }}">Knowledge</a>
         <a class="nav-link" href="{{ '/capabilities/' | relative_url }}">Capabilities</a>
         <a class="nav-link" href="{{ '/runtime/' | relative_url }}">Runtime</a>
-        <a class="nav-link" href="{{ '/repository/' | relative_url }}">Repository</a>
       </nav>
 
       <div class="header-actions">
-        <a href="{{ site.zenos.repository }}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0">
-            <path d="M9 19c-5 1.667-5-2.75-5-3.5s1-3.5 7-3.5 7 1.75 7 3.5-.5 3.5-5 5"></path>
-            <path d="M15 15V19M18 18V5M6 18V15M9 15L9 19"></path>
+        <a href="{{ site.zenos.repository }}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" aria-label="View on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.667-5-2.75-5-3.5s1-3.5 7-3.5 7 1.75 7 3.5-.5 3.5-5 5"/>
+            <path d="M15 15V19M18 18V5M6 18V15M9 15L9 19"/>
           </svg>
-          <span class="sr-only">GitHub</span>
         </a>
       </div>
     </div>
@@ -56,7 +57,7 @@
 
         <div class="footer-col footer-col-2">
           <h3>Domains</h3>
-          <ul class="contact-list">
+          <ul>
             <li><a href="{{ '/governance/' | relative_url }}">Governance</a></li>
             <li><a href="{{ '/knowledge/' | relative_url }}">Knowledge</a></li>
             <li><a href="{{ '/capabilities/' | relative_url }}">Capabilities</a></li>
@@ -66,7 +67,7 @@
 
         <div class="footer-col footer-col-3">
           <h3>Resources</h3>
-          <ul class="contact-list">
+          <ul>
             <li><a href="{{ '/getting-started/' | relative_url }}">Getting Started</a></li>
             <li><a href="{{ '/architecture/' | relative_url }}">Architecture</a></li>
             <li><a href="{{ '/repository/' | relative_url }}">Repository Guide</a></li>
