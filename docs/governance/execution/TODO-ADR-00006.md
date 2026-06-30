@@ -4,16 +4,15 @@ title: Documentation Platform Migration — Execution Roadmap
 description: Execution backlog and orchestration plan for implementing ADR-00006.
 version: 1.0.0
 status: Completed
-
 owner: Repository Architecture
-
 authors:
   - Luciano Duarte Scheffel
-
 created: 2026-06-29
 last_updated: 2026-06-29
-
 type: execution-roadmap
+layout: governance
+domain: governance
+---
 
 implements:
   - governance/decisions/ADR-00006.md
