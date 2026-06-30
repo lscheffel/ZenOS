@@ -1,0 +1,189 @@
+// =============================================================================
+// ZenOS Design System — Layout
+// =============================================================================
+
+.wrapper {
+  width: 100%;
+  max-width: container(max-width);
+  margin: 0 auto;
+  padding: 0 container(padding);
+
+  @media (max-width: bp(md)) {
+    padding: 0 spacing(4);
+  }
+}
+
+// --- Grid System ---
+.grid {
+  display: grid;
+  gap: spacing(6);
+
+  @media (max-width: bp(md)) {
+    gap: spacing(4);
+  }
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: bp(xl)) {
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: bp(md)) {
+  .grid-cols-4,
+  .grid-cols-3,
+  .grid-cols-2 { grid-template-columns: 1fr; }
+}
+
+// --- Flex Utilities ---
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: spacing(1); }
+.gap-2 { gap: spacing(2); }
+.gap-3 { gap: spacing(3); }
+.gap-4 { gap: spacing(4); }
+.gap-6 { gap: spacing(6); }
+.gap-8 { gap: spacing(8); }
+
+// --- Page Layout ---
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+
+  @media (min-width: bp(lg)) {
+    grid-template-columns: $sidebar-width 1fr;
+  }
+}
+
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: z(sticky);
+  background: color(primary-900);
+  border-bottom: 1px solid color(primary-600);
+}
+
+.page-main {
+  flex: 1;
+  padding: spacing(8) 0;
+
+  @media (max-width: bp(md)) {
+    padding: spacing(6) 0;
+  }
+}
+
+.page-footer {
+  border-top: 1px solid color(primary-600);
+  background: color(primary-800);
+  padding: spacing(10) 0 spacing(6);
+  margin-top: auto;
+}
+
+// --- Sidebar ---
+.sidebar {
+  position: sticky;
+  top: $header-height;
+  height: calc(100vh - #{$header-height});
+  overflow-y: auto;
+  background: color(primary-800);
+  border-right: 1px solid color(primary-600);
+  padding: spacing(6) spacing(4);
+  transition: transform trans(normal), width trans(normal);
+
+  @media (max-width: bp(lg)) {
+    position: fixed;
+    left: 0;
+    top: $header-height-mobile;
+    height: calc(100vh - #{$header-height-mobile});
+    width: $sidebar-width;
+    transform: translateX(-100%);
+    z-index: z(modal);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: z(dropdown);
+  opacity: 0;
+  transition: opacity trans(normal);
+
+  @media (max-width: bp(lg)) {
+    &.visible {
+      display: block;
+      opacity: 1;
+    }
+  }
+}
+
+// --- Section Spacing ---
+.section {
+  padding: spacing(16) 0;
+
+  &:first-child {
+    padding-top: spacing(10);
+  }
+
+  @media (max-width: bp(md)) {
+    padding: spacing(10) 0;
+
+    &:first-child {
+      padding-top: spacing(6);
+    }
+  }
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto spacing(10);
+
+  @media (max-width: bp(md)) {
+    margin-bottom: spacing(6);
+  }
+}
+
+// --- Container Variants ---
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+// --- Divider ---
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color(primary-500), transparent);
+  margin: spacing(8) 0;
+  border: none;
+}
+
+.divider-strong {
+  height: 2px;
+  background: linear-gradient(90deg, color(primary-700), color(accent-500), color(primary-700));
+  margin: spacing(10) 0;
+  border: none;
+}

@@ -1,0 +1,204 @@
+// =============================================================================
+// ZenOS Design System — Components: Buttons
+// =============================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(2);
+  font-family: #{$font-sans};
+  font-size: type(sm);
+  font-weight: weight(semibold);
+  line-height: 1;
+  padding: spacing(3) spacing(6);
+  border-radius: radius(lg);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all trans(fast);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid color(accent-400);
+    outline-offset: 2px;
+  }
+
+  // Sizes
+  &.btn-sm {
+    padding: spacing(2) spacing(4);
+    font-size: type(xs);
+    gap: spacing(1.5);
+  }
+
+  &.btn-lg {
+    padding: spacing(4) spacing(8);
+    font-size: type(base);
+    gap: spacing(2.5);
+  }
+
+  // Variants
+  &.btn-primary {
+    background: linear-gradient(135deg, color(accent-500), color(accent-400));
+    color: color(primary-900);
+    border-color: color(accent-500);
+    box-shadow: shadow(glow);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, color(accent-400), color(accent-300));
+      box-shadow: shadow(glow-lg);
+      transform: translateY(-1px);
+      text-decoration: none;
+      color: color(primary-900);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: shadow(glow);
+    }
+  }
+
+  &.btn-secondary {
+    background: color(surface-700);
+    color: color(neutral-100);
+    border-color: color(primary-500);
+
+    &:hover:not(:disabled) {
+      background: color(surface-600);
+      border-color: color(primary-400);
+      text-decoration: none;
+      color: color(neutral-50);
+    }
+
+    &:active:not(:disabled) {
+      background: color(surface-800);
+    }
+  }
+
+  &.btn-outline {
+    background: transparent;
+    color: color(accent-400);
+    border-color: color(accent-500);
+
+    &:hover:not(:disabled) {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: color(accent-400);
+      text-decoration: none;
+      color: color(accent-200);
+    }
+
+    &:active:not(:disabled) {
+      background: rgba(0, 212, 255, 0.2);
+    }
+  }
+
+  &.btn-ghost {
+    background: transparent;
+    color: color(neutral-300);
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background: color(surface-700);
+      text-decoration: none;
+      color: color(neutral-100);
+    }
+
+    &:active:not(:disabled) {
+      background: color(surface-800);
+    }
+  }
+
+  &.btn-danger {
+    background: linear-gradient(135deg, color(error-500), color(error-400));
+    color: color(neutral-10);
+    border-color: color(error-500);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, color(error-400), color(error-300));
+      text-decoration: none;
+      color: color(neutral-10);
+    }
+  }
+
+  // Icon only
+  &.btn-icon {
+    padding: spacing(2.5);
+    border-radius: radius(full);
+
+    &.btn-sm { padding: spacing(2); }
+    &.btn-lg { padding: spacing(3); }
+  }
+
+  // Full width
+  &.btn-block {
+    width: 100%;
+  }
+
+  // Loading state
+  &.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    &.btn-primary::after,
+    &.btn-danger::after {
+      border-color: color(primary-900);
+      border-right-color: transparent;
+    }
+
+    &.btn-secondary::after,
+    &.btn-outline::after,
+    &.btn-ghost::after {
+      border-color: currentColor;
+      border-right-color: transparent;
+    }
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  border-radius: radius(lg);
+  overflow: hidden;
+  border: 1px solid color(primary-500);
+
+  .btn {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+
+    &:first-child {
+      border-radius: radius(lg) 0 0 radius(lg);
+    }
+
+    &:last-child {
+      border-radius: 0 radius(lg) radius(lg) 0;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid color(primary-500);
+    }
+  }
+}

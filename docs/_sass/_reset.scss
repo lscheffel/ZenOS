@@ -1,0 +1,124 @@
+// =============================================================================
+// ZenOS Design System — Reset & Normalize
+// =============================================================================
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: #{$font-sans};
+  font-size: type(base);
+  line-height: line(normal);
+  color: color(neutral-100);
+  background-color: color(primary-900);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+a {
+  color: color(accent-400);
+  text-decoration: none;
+  transition: color trans(fast);
+
+  &:hover {
+    color: color(accent-200);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid color(accent-400);
+    outline-offset: 2px;
+    border-radius: radius(sm);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid color(accent-400);
+  outline-offset: 2px;
+  border-radius: radius(sm);
+}
+
+::selection {
+  background-color: color(accent-400);
+  color: color(primary-900);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: color(primary-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color(neutral-500);
+  border-radius: radius(full);
+  border: 2px solid color(primary-800);
+
+  &:hover {
+    background: color(neutral-400);
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background: color(primary-800);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: spacing(4);
+  padding: spacing(2) spacing(4);
+  background: color(accent-500);
+  color: color(primary-900);
+  font-weight: weight(semibold);
+  border-radius: radius(md);
+  z-index: z(toast);
+  transition: top trans(fast);
+
+  &:focus {
+    top: spacing(4);
+  }
+}

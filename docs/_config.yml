@@ -145,8 +145,8 @@ sass:
   style: compressed
   sourcemap: never
 
-# Theme (using minimal theme as base, custom layouts in _layouts)
-theme: "minima"
+# Theme (custom layouts in _layouts)
+theme: null
 
 # Custom Variables
 zenos:
