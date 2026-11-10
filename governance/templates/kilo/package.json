@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@kilocode/plugin": "7.3.50"
+    "@kilocode/plugin": "7.8.27"
   },
   "scripts": {
     "preflight": "echo 'TODO: implement preflight validation'",
